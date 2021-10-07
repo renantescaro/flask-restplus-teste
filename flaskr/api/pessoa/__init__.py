@@ -29,4 +29,4 @@ class PessoaApi(Resource):
     @namespace.response(500, erro)
     def post(self):
         '''Insere nova pessoa'''
-        return ''
+        return {'status':True}

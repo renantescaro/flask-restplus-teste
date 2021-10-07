@@ -1,6 +1,5 @@
 from flask import Flask
-from flaskr.api.pessoa_api import bp as bp_pessoa
-from flaskr.api_doc import blueprint as documented_endpoint
+from flaskr.api import bp as bp_api
 
 
 def create_app(test_config=None):
@@ -18,6 +17,5 @@ def create_app(test_config=None):
 
 
     # adicionar rotas
-    app.register_blueprint(bp_pessoa)
-    app.register_blueprint(documented_endpoint)
+    app.register_blueprint(bp_api)
     return app

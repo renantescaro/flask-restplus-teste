@@ -1,11 +1,14 @@
 from flask import Blueprint
 from flask_restplus import Api
-from flaskr.api_doc.pessoa import namespace as pessoa_ns
+from flaskr.api.pessoa import namespace as pessoa_ns
 
-blueprint = Blueprint('documented_api', __name__, url_prefix='/documented_api')
+bp = Blueprint(
+    'api',
+    __name__,
+    url_prefix='/api')
 
 api_extension = Api(
-    blueprint,
+    bp,
     title='Flask RESTplus Teste',
     version='1.0',
     description='Testando Flask RESTplus',
