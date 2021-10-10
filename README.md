@@ -7,22 +7,21 @@
 </p>
 
 
-<h5>Dependencias</h5>
+<h4>Dependencias</h4>
 <ul>
     <li>dotenv</li>
     <li>flask-restplus</li>
-    <li>Werkzeug</li>
     <li>mysql-connector-python</li>
 </ul>
 <br>
 
 
-<h5>Estrutura banco de dados</h5>
+<h4>Estrutura banco de dados</h4>
 Link: <a href="doc/banco.sql">.SQL</a>
 <br>
 
 
-<h5>Executar - Windows</h5>
+<h4>Executar - Windows</h4>
 <ul>
     <li>set FLASK_APP=flaskr</li>
     <li>set FLASK_ENV=development</li>
@@ -31,7 +30,7 @@ Link: <a href="doc/banco.sql">.SQL</a>
     <li>flask run</li>
 </ul>
 
-<h5>Executar - Linux</h5>
+<h4>Executar - Linux</h4>
 <ul>
     <li>export FLASK_APP=flaskr</li>
     <li>export FLASK_ENV=development</li>
@@ -42,7 +41,7 @@ Link: <a href="doc/banco.sql">.SQL</a>
 <br>
 
 
-<h5>Documentação Swagger</h5>
+<h4>Documentação Swagger</h4>
 <ul>
     <li>Link:
         <a href="http://localhost:5000/api/doc">http://localhost:5000/api/doc</a>
@@ -53,6 +52,16 @@ Link: <a href="doc/banco.sql">.SQL</a>
 </ul>
 <br>
 
-<h5>Postman Collection</h5>
+<h4>Postman Collection</h4>
 Link: <a href="doc/flask-restplus-teste.postman_collection.json">Collection</a>
 <br>
+
+<h4>Pendências</h4>
+<ul>
+    <li>Endpoint DELETE Pessoa</li>
+    <li>Endpoint GET por ID de Pesssoa</li>
+    <li>Testes unitários</li>
+    <li>SQL Alchemy</li>
+    <li>Virtual Environments</li>
+    <li>Docker</li>
+</ul>
