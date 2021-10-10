@@ -1,4 +1,5 @@
 from flaskr.dao.banco import Banco
+from typing import List
 
 
 class PessoaDao(Banco):
@@ -13,7 +14,7 @@ class PessoaDao(Banco):
             'data_nascimento' : linha[2].strftime('%Y-%m-%d') }
 
 
-    def todas(self):
+    def todas(self) -> List:
         query = """
             SELECT *
             FROM pessoas
@@ -24,7 +25,7 @@ class PessoaDao(Banco):
         return pessoas
 
 
-    def inserir(self, nome, data_nascimento):
+    def inserir(self, nome, data_nascimento) -> bool:
         query = """
             INSERT INTO pessoas
                 (nome, data_nascimento)
@@ -32,3 +33,12 @@ class PessoaDao(Banco):
                 (%s, %s)
             """
         return self.executar(query, (nome, data_nascimento,))
+
+
+    def atualizar(self, id, nome, data_nascimento) -> bool:
+        query = """
+            UPDATE pessoas
+            SET nome = %s, data_nascimento = %s
+            WHERE id = %s
+            """
+        return self.executar(query, (nome, data_nascimento, id,))
