@@ -27,3 +27,15 @@ class PessoaApi(Resource):
 
         status = PessoaDao().inserir(nome, data_nascimento)
         return json.dumps({'status', status})
+
+
+    @namespace.expect(pessoa_model.put(), validate=True)
+    @namespace.response(500, erro)
+    def put(self):
+        '''Atualiza dados de uma pessoa ja existente'''
+        id   = request.json['id']
+        nome = request.json['nome']
+        data_nascimento = request.json['data_nascimento']
+
+        status = PessoaDao().atualizar(id, nome, data_nascimento)
+        return json.dumps({'status', status})
