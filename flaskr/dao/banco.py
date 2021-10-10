@@ -18,6 +18,10 @@ class Banco:
 
 
     def executar(self, query, parametros=None):
-        my_cursor = self.mydb.cursor()
-        my_cursor.execute(query, parametros)
-        self.mydb.commit()
+        try:
+            my_cursor = self.mydb.cursor()
+            my_cursor.execute(query, parametros)
+            self.mydb.commit()
+            return True
+        except:
+            return False
