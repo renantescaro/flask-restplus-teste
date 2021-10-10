@@ -1,6 +1,27 @@
 <h1>Teste documentação API com flask_restplus</h1>
 <br>
 
+<p>
+    Estrutura básica para testar a biblioteca <a href="https://github.com/noirbizarre/flask-restplus">flask_restplusflask_restplus</a> / <a href="https://github.com/python-restx/flask-restx">flask-restx</a>
+    Versões: Python 3.9.5, PIP 21.1.3, flask_restplusflask_restplus 0.13.0, MariaDB 8.0.12
+</p>
+
+
+<h5>Dependencias</h5>
+<ul>
+    <li>dotenv</li>
+    <li>flask-restplus</li>
+    <li>Werkzeug</li>
+    <li>mysql-connector-python</li>
+</ul>
+<br>
+
+
+<h5>Estrutura banco de dados</h5>
+Link: <a href="doc/banco.sql">.SQL</a>
+<br>
+
+
 <h5>Executar - Windows</h5>
 <ul>
     <li>set FLASK_APP=flaskr</li>
@@ -20,14 +41,6 @@
 </ul>
 <br>
 
-<h5>Dependencias</h5>
-<ul>
-    <li>dotenv</li>
-    <li>flask-restplus</li>
-    <li>Werkzeug</li>
-    <li>mysql-connector-python</li>
-</ul>
-<br>
 
 <h5>Documentação Swagger</h5>
 <ul>
