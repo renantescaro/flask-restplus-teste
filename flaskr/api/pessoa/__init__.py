@@ -1,32 +1,29 @@
 import json
-from flask_restplus import Namespace, Resource, fields
+from flask import request
+from flask_restplus import Namespace, Resource
+from flaskr.dao.pessoa_dao import PessoaDao
+from flaskr.model.pessoa_model import PessoaModel
+from flaskr.utils.debug import Debug
 
-namespace = Namespace('pessoas', '')
-erro = json.dumps({'status':False})
+namespace    = Namespace('pessoas', '')
+pessoa_model = PessoaModel(namespace)
+erro         = json.dumps({'status':False})
 
-post_pessoa = namespace.model('pessoa', 
-    {
-        'id': fields.Integer(
-            required=True,
-            description='Identificador único'
-        ),
-        'nome': fields.String(
-            required=True,
-            description='Nome da pessoa'
-        )
-    }
-)
 
 @namespace.route('')
 class PessoaApi(Resource):
     @namespace.response(500, erro)
     def get(self):
         '''Listagem de pessoas'''
-        return {'pessoas': 'teste'}
+        return PessoaDao().todas()
 
 
-    @namespace.expect(post_pessoa)
+    @namespace.expect(pessoa_model.post(), validate=True)
     @namespace.response(500, erro)
     def post(self):
         '''Insere nova pessoa'''
-        return {'status':True}
+        nome = request.json['nome']
+        data_nascimento = request.json['data_nascimento']
+
+        status = PessoaDao().inserir(nome, data_nascimento)
+        return json.dumps({'status', status})
