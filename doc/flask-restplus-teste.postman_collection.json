@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "aee5f9a0-0b7c-4e70-aa35-401616c66db0",
+		"name": "flask-restplus-teste",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "consultar pessoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/pessoas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "inserir pessoa",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Renan Tescaro\",\r\n  \"data_nascimento\":\"1996-06-26\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/pessoas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"pessoas"
+					],
+					"query": [
+						{
+							"key": "content_type",
+							"value": "application/json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar pessoa",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Renan Tescaro\",\r\n  \"data_nascimento\":\"1996-06-06\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/pessoas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"pessoas"
+					],
+					"query": [
+						{
+							"key": "content_type",
+							"value": "application/json",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
