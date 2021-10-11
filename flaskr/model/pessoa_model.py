@@ -6,14 +6,10 @@ class PessoaModel:
         self.namespace = namespace
 
 
-    def _modelo(self, model):
-        return self.namespace.model(
-            name='pessoa',
-            model=model )
-
-
     def post(self):
-        return self._modelo({
+        return self.namespace.model(
+            name='pessoa_post',
+            model={
             'nome': fields.String(
                 required=True,
                 description='Nome da pessoa'
@@ -26,7 +22,9 @@ class PessoaModel:
 
 
     def put(self):
-        return self._modelo({
+        return self.namespace.model(
+            name='pessoa_put',
+            model={
             'id': fields.Integer(
                 required=True,
                 description='Identificador único'
