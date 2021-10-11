@@ -58,8 +58,6 @@ Link: <a href="doc/flask-restplus-teste.postman_collection.json">Collection</a>
 
 <h4>Pendências</h4>
 <ul>
-    <li>Endpoint DELETE Pessoa</li>
-    <li>Endpoint GET por ID de Pesssoa</li>
     <li>Testes unitários</li>
     <li>SQL Alchemy</li>
     <li>Virtual Environments</li>
