@@ -23,6 +23,18 @@ class PessoaDao(Banco):
         for linha in self.selecionar(query):
             pessoas.append(self._setar(linha))
         return pessoas
+    
+
+    def por_id(self, id:int):
+        query = """
+            SELECT *
+            FROM pessoas
+            WHERE id = %s
+            """
+        retorno_bd = self.selecionar(query, (id,))
+        if len(retorno_bd) > 0:
+            return self._setar(retorno_bd[0])
+        return None
 
 
     def inserir(self, nome, data_nascimento) -> bool:
@@ -42,3 +54,11 @@ class PessoaDao(Banco):
             WHERE id = %s
             """
         return self.executar(query, (nome, data_nascimento, id,))
+    
+
+    def deletar_por_id(self, id):
+        query = """
+            DELETE FROM pessoas
+            WHERE id = %s 
+            """
+        return self.executar(query, (id,))
