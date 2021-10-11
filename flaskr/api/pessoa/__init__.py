@@ -1,5 +1,5 @@
 import json
-from flask import request
+from flask import request, jsonify
 from flask_restplus import Namespace, Resource
 from flaskr.dao.pessoa_dao import PessoaDao
 from flaskr.model.pessoa_model import PessoaModel
@@ -8,6 +8,20 @@ from flaskr.utils.debug import Debug
 namespace    = Namespace('pessoas', '')
 pessoa_model = PessoaModel(namespace)
 erro         = json.dumps({'status':False})
+
+
+@namespace.route('/<int:id>')
+class PessoaParametrosApi(Resource):
+    @namespace.response(500, erro)
+    def get(self, id):
+        '''Pessoa por Id'''
+        return PessoaDao().por_id(id)
+    
+    @namespace.response(500, erro)
+    def delete(self, id):
+        '''Deleta pessoa por Id'''
+        status = PessoaDao().deletar_por_id(id)
+        return {'status':status}
 
 
 @namespace.route('')
@@ -26,7 +40,7 @@ class PessoaApi(Resource):
         data_nascimento = request.json['data_nascimento']
 
         status = PessoaDao().inserir(nome, data_nascimento)
-        return json.dumps({'status', status})
+        return {'status':status}
 
 
     @namespace.expect(pessoa_model.put(), validate=True)
@@ -38,4 +52,4 @@ class PessoaApi(Resource):
         data_nascimento = request.json['data_nascimento']
 
         status = PessoaDao().atualizar(id, nome, data_nascimento)
-        return json.dumps({'status', status})
+        return {'status':status}
