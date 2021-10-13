@@ -3,6 +3,7 @@
 
 <p>
     Estrutura básica para testar a biblioteca <a href="https://github.com/noirbizarre/flask-restplus">flask_restplusflask_restplus</a> / <a href="https://github.com/python-restx/flask-restx">flask-restx</a>
+    <br>
     Versões: Python 3.9.5, PIP 21.1.3, flask_restplusflask_restplus 0.13.0, MariaDB 8.0.12
 </p>
 
