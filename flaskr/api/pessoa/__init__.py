@@ -1,12 +1,12 @@
 import json
-from flask import request
+from flask import request, jsonify
 from flask_restx import Namespace, Resource
-from flaskr.dao.pessoa_dao import PessoaDao
-from flaskr.model.pessoa_model import PessoaModel
+from flaskr.models_db.pessoa_model_db import Pessoa, db
+from flaskr.models_api.pessoa_model_api import PessoaModelApi
 from flaskr.utils.debug import Debug
 
 namespace    = Namespace('pessoas', '')
-pessoa_model = PessoaModel(namespace)
+pessoa_model = PessoaModelApi(namespace)
 erro         = json.dumps({'status':False})
 
 
@@ -15,13 +15,16 @@ class PessoaParametrosApi(Resource):
     @namespace.response(500, erro)
     def get(self, id):
         '''Pessoa por Id'''
-        return PessoaDao().por_id(id)
-    
+        return jsonify(Pessoa.query.filter_by(id=id).first())
+
+
     @namespace.response(500, erro)
     def delete(self, id):
         '''Deleta pessoa por Id'''
-        status = PessoaDao().deletar_por_id(id)
-        return {'status':status}
+        pessoa = Pessoa.query.filter_by(id=id).first()
+        db.session.delete(pessoa)
+        db.session.commit()
+        return {'status':True}
 
 
 @namespace.route('')
@@ -29,27 +32,30 @@ class PessoaApi(Resource):
     @namespace.response(500, erro)
     def get(self):
         '''Listagem de pessoas'''
-        return PessoaDao().todas()
+        return jsonify(Pessoa.query.all())
 
 
     @namespace.expect(pessoa_model.post(), validate=True)
     @namespace.response(500, erro)
     def post(self):
         '''Insere nova pessoa'''
-        nome = request.json['nome']
-        data_nascimento = request.json['data_nascimento']
+        pessoa      = Pessoa()
+        pessoa.nome = request.json['nome']
+        pessoa.data_nascimento = request.json['data_nascimento']
 
-        status = PessoaDao().inserir(nome, data_nascimento)
-        return {'status':status}
+        db.session.add(pessoa)
+        db.session.commit()
+        return {'status':True}
 
 
     @namespace.expect(pessoa_model.put(), validate=True)
     @namespace.response(500, erro)
     def put(self):
         '''Atualiza dados de uma pessoa ja existente'''
-        id   = request.json['id']
-        nome = request.json['nome']
-        data_nascimento = request.json['data_nascimento']
+        id = request.json['id']
+        pessoa:Pessoa = Pessoa.query.filter_by(id=id).first()
+        pessoa.nome   = request.json['nome']
+        pessoa.data_nascimento = request.json['data_nascimento']
 
-        status = PessoaDao().atualizar(id, nome, data_nascimento)
-        return {'status':status}
+        db.session.commit()
+        return {'status':True}
