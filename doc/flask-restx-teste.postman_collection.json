@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "aee5f9a0-0b7c-4e70-aa35-401616c66db0",
-		"name": "flask-restplus-teste",
+		"name": "flask-restx-teste",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
