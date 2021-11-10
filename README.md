@@ -46,7 +46,6 @@ Link: <a href="doc/flask-restx-teste.postman_collection.json">Collection</a>
 <h4>Pendências</h4>
 <ul>
     <li>Testes unitários</li>
-    <li>SQL Alchemy</li>
     <li>Virtual Environments</li>
     <li>Docker</li>
 </ul>
