@@ -1,0 +1,6 @@
+flask==1.1.2
+mysqlclient==2.0.3
+Flask-SQLAlchemy==2.5.1
+python-dotenv==0.17.0
+waitress==2.0.0
+flask-restx==0.5.1
