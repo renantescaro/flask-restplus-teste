@@ -1,7 +1,7 @@
 from flask_restx import Namespace, fields
 
 
-class PessoaModel:
+class PessoaModelApi:
     def __init__(self, namespace: Namespace) -> None:
         self.namespace = namespace
 
