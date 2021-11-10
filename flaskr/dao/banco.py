@@ -5,10 +5,10 @@ from flaskr.utils.config import Config
 class Banco:
     def __init__(self):
         self.mydb    = connector.connect(
-            host     = Config.get('host'),
-            user     = Config.get('user'),
-            password = Config.get('password'),
-            database = Config.get('database') )
+            host     = Config.get('DB_HOST'),
+            user     = Config.get('DB_USUARIO'),
+            password = Config.get('DB_SENHA'),
+            database = Config.get('DB_BANCO') )
 
 
     def selecionar(self, query, parametros=None):
