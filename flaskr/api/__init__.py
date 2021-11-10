@@ -1,5 +1,5 @@
 from flask import Blueprint
-from flask_restplus import Api
+from flask_restx import Api
 from flaskr.api.pessoa import namespace as pessoa_ns
 
 bp = Blueprint(
@@ -9,9 +9,9 @@ bp = Blueprint(
 
 api_extension = Api(
     bp,
-    title='Flask RESTplus Teste',
+    title='Flask restx Teste',
     version='1.0',
-    description='Testando Flask RESTplus',
+    description='Testando Flask restx',
     doc='/doc'
 )
 

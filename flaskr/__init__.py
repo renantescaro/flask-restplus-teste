@@ -12,8 +12,7 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY   = 'super secret key',
         SESSION_TYPE = 'filesystem',
-        JSONIFY_PRETTYPRINT_REGULAR = False,
-        RESTPLUS_MASK_SWAGGER = False )
+        JSONIFY_PRETTYPRINT_REGULAR = False )
 
 
     # adicionar rotas

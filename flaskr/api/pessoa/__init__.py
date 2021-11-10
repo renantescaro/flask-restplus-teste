@@ -1,6 +1,6 @@
 import json
-from flask import request, jsonify
-from flask_restplus import Namespace, Resource
+from flask import request
+from flask_restx import Namespace, Resource
 from flaskr.dao.pessoa_dao import PessoaDao
 from flaskr.model.pessoa_model import PessoaModel
 from flaskr.utils.debug import Debug
